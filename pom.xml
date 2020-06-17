@@ -6,11 +6,11 @@
 
     <groupId>org.sagebionetworks</groupId>
     <artifactId>BridgeDataUploadUtils</artifactId>
-    <version>0.2.6</version>
+    <version>0.2.7</version>
 
     <properties>
         <aws.version>1.10.49</aws.version>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.11.0</jackson.version>
         <java.version>1.7</java.version>
         <logback.version>1.1.6</logback.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -87,7 +87,7 @@
         <dependency>
             <groupId>org.sagebionetworks.bridge</groupId>
             <artifactId>rest-client</artifactId>
-            <version>0.12.32</version>
+            <version>0.20.4</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -121,7 +121,7 @@
         <dependency>
             <groupId>org.sagebionetworks</groupId>
             <artifactId>BridgeTestUtils</artifactId>
-            <version>1.2</version>
+            <version>1.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -136,7 +136,7 @@
         <repository>
             <id>sagebionetworks-libs-releases-local</id>
             <name>sagebionetworks-libs-releases-local</name>
-            <url>http://sagebionetworks.artifactoryonline.com/sagebionetworks/libs-releases-local</url>
+            <url>https://sagebionetworks.artifactoryonline.com/sagebionetworks/libs-releases-local</url>
         </repository>
         <repository>
             <id>org-sagebridge-repo-maven-releases</id>
@@ -235,9 +235,12 @@
     </build>
 
     <distributionManagement>
+        <site>
+            <id>s3.site</id>
+            <url>s3://developer.sagebridge.org/${project.artifactId}/${project.version}</url>
+        </site>
         <repository>
-            <id>org-sagebridge-repo-maven-releases</id>
-            <name>org-sagebridge-repo-maven-releases</name>
+            <id>s3.release</id>
             <url>s3://org-sagebridge-repo-maven-releases</url>
         </repository>
     </distributionManagement>
